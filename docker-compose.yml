@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   tamy-shoppinglist-app:
@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     container_name: tamy-shoppinglist-app
     ports:
-      - "3000:80"
+      - "5000:80"
     restart: unless-stopped
     environment:
       - NODE_ENV=production
