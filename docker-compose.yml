@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  tamy-shoppinglist-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tamy-shoppinglist-app
+    ports:
+      - "3000:80"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    networks:
+      - tamy-network
+
+  # Opcional: Adicionar um proxy reverso se necessário
+  # nginx-proxy:
+  #   image: nginx:alpine
+  #   container_name: nginx-proxy
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   volumes:
+  #     - ./nginx-proxy.conf:/etc/nginx/nginx.conf
+  #   depends_on:
+  #     - tamy-shoppinglist-app
+  #   networks:
+  #     - tamy-network
+
+networks:
+  tamy-network:
+    driver: bridge
+
+volumes:
+  nginx-logs:
+    driver: local
