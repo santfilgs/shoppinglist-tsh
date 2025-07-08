@@ -11,8 +11,6 @@ services:
     restart: unless-stopped
     environment:
       - NODE_ENV=production
-    networks:
-      - tamy-network
 
   # Opcional: Adicionar um proxy reverso se necessário
   # nginx-proxy:
@@ -27,10 +25,6 @@ services:
   #     - tamy-shoppinglist-app
   #   networks:
   #     - tamy-network
-
-networks:
-  tamy-network:
-    driver: bridge
 
 volumes:
   nginx-logs:
